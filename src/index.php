@@ -68,6 +68,8 @@
  * @apiGroup Events
  * @apiDescription Second view, event details (all courses listed on this page) One used for example
  *
+ * @apiParam {Number} id Event ID.
+ * 
  * @apiSuccess	(Success 201)	{json}	courses	All courses for event
  * 
  * @apiSuccessExample	{json}	Success:
@@ -78,6 +80,10 @@
  *       	"id": "123456",
  *      	"sku": "22COrlando-LE22C278044",
  *          "code": "22COrlando-LE22C278044",
+ * 			"cpe_category_1": "",
+ * 			"cpe_credits_1": "",
+ * 			"cpe_category_2": "",
+ * 			"cpe_credits_2": "",
  *          "name": "Everybody's Critical Individual Tax Issues in 2022",
  *          "date": "June 13, 2022",
  *          "start_time": "07:30",
@@ -121,18 +127,41 @@
 // end_time: 13:00
 
 /**
- * @api {get} /class Returns all details and materials for a class
+ * @api {get} /course Returns all details and materials for a course
  * @apiVersion 2022.3.8
- * @apiName GetClass
+ * @apiName GetCourse
  * @apiGroup Events
- * @apiDescription Third view, class details (materials and instructor info) One used for example
+ * @apiDescription Third view, course details (materials and instructor info) One used for example
  *
- * @apiSuccess	(Success 201)	{json}	class	Class details with instructor
+ * @apiParam {Number} id Course ID.
+ * 
+ * @apiSuccess	(Success 201)	{json}	course	Course details with instructor
  * 
  * @apiSuccessExample	{csv}	Success:
  *	HTTP/1.1 200 OK
  *	{
- *		"serviceOrderNumber": "1234567",
+ *    "code": "22COrlando-LE22C278044 (actual code, not sku)",
+ *    "name": "Everybody's Critical Individual Tax Issues in 2022",
+ *    "date": "June 13, 2022",
+ *    "start_time": "07:30",
+ *    "end_time": "13:00",
+ *    "materials_1_name": "2022 Federal Tax Update Manual",
+ *    "materials_1_file": "S3 url",
+ *    "materials_2_name": "2022 Federal Tax Update Slides",
+ *    "materials_2_file": "s3 url",
+ *    "materials_3_name": "Hoag BTC Wallet Private Key",
+ *    "materials_3_file": "s3 url",
+ *    "materials_4_name": "Watergate Photo Collection PPT",
+ *    "materials_4_file": "s3 url",
+ *    "materials_5_name": "Area 51 Top Secret Documents",
+ *    "materials_5_file": "s3 url",
+ *    "materials_6_name": "Sharons Blue Footed Boobies",
+ *    "materials_6_file": "s3 url",
+ *    "Instructor" "name: Mark Seid, Ea, CPA, USTCP",
+ *    "organization": "Western CPE",
+ *    "organization_link": "westerncpe.com",
+ *    "image": "https://www.westerncpe.com/wp-content/uploads/2020/01/WCPE-WebsiteBio-Mark-Seid.jpg",
+ *    "bio": "Mark F. Seid, EA, CPA has an active tax practice in Paso Robles, California specializing in small businesses and tax controversy. A National Tax Practice Institute graduate, Mark is admitted to practice before the U.S. Tax Court. He has served as an Internal Revenue Agent with the IRS in San Jose and San Luis Obispo, California, a state director for the California Society of Enrolled Agents, and the chair for the society’s Finance and Budget committee. He regularly presents courses to tax professionals on issues affecting small businesses"		
  *	}
  * 
  * @apiError	(Error 400)		{json}		Bad-Request				Invalid payload
