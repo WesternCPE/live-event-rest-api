@@ -12,7 +12,18 @@
  * @apiSuccessExample	{json}	Success:
  *	HTTP/1.1 200 OK
  *	{
- *		"serviceOrderNumber": "1234567",
+ *   "events": [
+ *     {
+ *       "id": "123456",
+ *       "code": "22COrlando",
+ *       "sku": "22COrlando",
+ *       "name": "Orlando, FL",
+ *       "year": "2022",
+ *       "banner_image": "https://www.westerncpe.com/wp-content/uploads/2021/11/orlando_WesternCPE-scaled.jpg",
+ *       "start_date": "June 13, 2022",
+ *       "end_date": "June 17, 2022"
+ * 		}
+ * 	 ]
  *	}
  * 
  * @apiError	(Error 400)		{json}		Bad-Request				Invalid payload
@@ -51,18 +62,28 @@
 
 
 /**
- * @api {get} /event/classes Returns all classes for a single event
+ * @api {get} /event/courses Returns all courses for a single event
  * @apiVersion 2022.3.8
- * @apiName GetEventClasses
+ * @apiName GetEventCourses
  * @apiGroup Events
- * @apiDescription Second view, event details (all classes listed on this page) One used for example
+ * @apiDescription Second view, event details (all courses listed on this page) One used for example
  *
- * @apiSuccess	(Success 201)	{json}	classes	All classes for event
+ * @apiSuccess	(Success 201)	{json}	courses	All courses for event
  * 
- * @apiSuccessExample	{csv}	Success:
+ * @apiSuccessExample	{json}	Success:
  *	HTTP/1.1 200 OK
  *	{
- *		"serviceOrderNumber": "1234567",
+ *    "courses": [
+ *       {
+ *       	"id": "123456",
+ *      	"sku": "22COrlando-LE22C278044",
+ *          "code": "22COrlando-LE22C278044",
+ *          "name": "Everybody's Critical Individual Tax Issues in 2022",
+ *          "date": "June 13, 2022",
+ *          "start_time": "07:30",
+ *          "end_time": "13:00"
+ *       }
+ *    ]
  *	}
  * 
  * @apiError	(Error 400)		{json}		Bad-Request				Invalid payload
