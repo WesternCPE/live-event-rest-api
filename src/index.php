@@ -225,14 +225,14 @@
  * HTTP/1.1 200 OK
  *  {  
  *    "attendees": [
- * 		 {
+ * 		{
  *        "user_id": "2124232", 
  *        "first_name": "Mark",
  *        "last_name": "Seid, Ea, CPA, USTCP",
  *        "email_address": "mark@example.org",
  *        "organization": "Western CPE"
  *        "order_line_id": "342333"
- *		 }
+ *      }
  * 	  ]
  *	}  
  * 
