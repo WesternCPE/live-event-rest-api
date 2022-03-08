@@ -222,17 +222,18 @@
  * @apiSuccess	(Success 200)	{json}	course	Course details with instructor
  * 
  * @apiSuccessExample	{json}	Success:
- *  HTTP/1.1 200 OK
+ * HTTP/1.1 200 OK
  *  {  
- *     "attendees": [
- * 		  {
- *    		"user_id": "2124232", 
- * 			"first_name": "Mark",
- * 			"last_name": "Seid, Ea, CPA, USTCP",
- * 			"email_address": "mark@example.org",
- *          "organization": "Western CPE"
- *		  }
- * 	   ]
+ *    "attendees": [
+ * 		 {
+ *        "user_id": "2124232", 
+ *        "first_name": "Mark",
+ *        "last_name": "Seid, Ea, CPA, USTCP",
+ *        "email_address": "mark@example.org",
+ *        "organization": "Western CPE"
+ *        "order_line_id": "342333"
+ *		 }
+ * 	  ]
  *	}  
  * 
  * @apiError	(Error 400)		{json}		Bad-Request				Invalid payload
@@ -268,14 +269,17 @@
  * @apiGroup Courses
  * @apiDescription Issue a certificate for attending a live event course
  *
- * @apiParam {Number} course_id Course ID.
- * @apiParam {Number} user_id User ID.
- * @apiParam {Number} credits_earned Total credits earned. 
+ * @apiParam {Object} certificate_request         Certificate request object.
+ * @apiParam {Number} certificate_request.course_id Course ID.
+ * @apiParam {Number} certificate_request.user_id User ID.
+ * @apiParam {Number} certificate_request.credits_earned Total credits earned. 
  * 
- * @apiSuccess	(Success 201)	{json}	certificate_details	Record of live event certificate
+ * @apiSuccess	(Success 201)	{json}	certificates	List of event certificates
  * 
  * @apiSuccessExample	{json}	Success:
  * HTTP/1.1 201 OK
+ * {
+ *  "certificates": [
  *  {
  *    "certificateid":"1289719",
  *    "userid":"0",
@@ -330,7 +334,9 @@
  *    "wp_order_id":"32232",
  *    "wp_order_item_id":"123122",
  *    "certificateissuestimecreated":null
- *  }
+ *    }
+ *  ]
+ * }
  * 
  * @apiError	(Error 400)		{json}		Bad-Request				Invalid payload
  * @apiError	(Error 404)		{json}		Not-Found				Not Found
