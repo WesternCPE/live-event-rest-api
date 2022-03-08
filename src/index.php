@@ -225,7 +225,7 @@
  * HTTP/1.1 200 OK
  *  {  
  *    "attendees": [
- * 		{
+ *      {
  *        "user_id": "2124232", 
  *        "first_name": "Mark",
  *        "last_name": "Seid, Ea, CPA, USTCP",
@@ -233,8 +233,8 @@
  *        "organization": "Western CPE"
  *        "order_line_id": "342333"
  *      }
- * 	  ]
- *	}  
+ *    ]
+ *  }  
  * 
  * @apiError	(Error 400)		{json}		Bad-Request				Invalid payload
  * @apiError	(Error 404)		{json}		Not-Found				Not Found
