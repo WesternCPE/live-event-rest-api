@@ -209,24 +209,127 @@
 // image: https://www.westerncpe.com/wp-content/uploads/2020/01/WCPE-WebsiteBio-Mark-Seid.jpg
 // bio: Mark F. Seid, EA, CPA has an active tax practice in Paso Robles, California specializing in small businesses and tax controversy. A National Tax Practice Institute graduate, Mark is admitted to practice before the U.S. Tax Court. He has served as an Internal Revenue Agent with the IRS in San Jose and San Luis Obispo, California, a state director for the California Society of Enrolled Agents, and the chair for the society’s Finance and Budget committee. He regularly presents courses to tax professionals on issues affecting small businesses
 
+
 /**
- * @api {post} /course/attend Record Attendence for Course
+ * @api {get} /course/attendees Returns all users enrolled in a course
  * @apiVersion 2022.3.8
- * @apiName AttendCourse
+ * @apiName GetCourseAttendees
  * @apiGroup Courses
- * @apiDescription Record attendence for a user for a live event course
+ * @apiDescription Fourth view, course attendees details One used for example
  *
  * @apiParam {Number} id Course ID.
- * @apiParam {Number} id User ID.
  * 
- * @apiSuccess	(Success 201)	{json}	attendence	Record of live event attendance
+ * @apiSuccess	(Success 200)	{json}	course	Course details with instructor
+ * 
+ * @apiSuccessExample	{json}	Success:
+ *  HTTP/1.1 200 OK
+ *  {  
+ *     "attendees": [
+ * 		  {
+ *    		"user_id": "2124232", 
+ * 			"first_name": "Mark",
+ * 			"last_name": "Seid, Ea, CPA, USTCP",
+ * 			"email_address": "mark@example.org",
+ *          "organization": "Western CPE"
+ *		  }
+ * 	   ]
+ *	}  
+ * 
+ * @apiError	(Error 400)		{json}		Bad-Request				Invalid payload
+ * @apiError	(Error 404)		{json}		Not-Found				Not Found
+ * @apiError	(Error 409)		{json}		Conflict				requestItemID already exists
+ * 
+ * @apiErrorExample		{json}	Bad-Request:
+ *	HTTP/1.1 400 Bad Request
+ *	{
+ *		"error": "Bad Request"
+ *	}
+ * @apiErrorExample		{json}	Invalid-accessKey:
+ *	HTTP/1.1 401 Unauthorized
+ *	{
+ *		"error": "Invalid accessKey"
+ *	}
+ * @apiErrorExample		{json}	Not-Found:
+ *	HTTP/1.1 404 Not Found
+ *	{
+ *		"error": "Not Found"
+ *	}
+ * @apiErrorExample		{json}	requestItemID-Already-Exists:
+ *	HTTP/1.1 409 Conflict
+ *	{
+ *		"error": "requestItemID already exists"
+ *	}
+ */
+
+/**
+ * @api {post} /course/certificate Issue certificate for Course
+ * @apiVersion 2022.3.8
+ * @apiName IssueCertificate
+ * @apiGroup Courses
+ * @apiDescription Issue a certificate for attending a live event course
+ *
+ * @apiParam {Number} course_id Course ID.
+ * @apiParam {Number} user_id User ID.
+ * @apiParam {Number} credits_earned Total credits earned. 
+ * 
+ * @apiSuccess	(Success 201)	{json}	certificate_details	Record of live event certificate
  * 
  * @apiSuccessExample	{json}	Success:
  * HTTP/1.1 201 OK
  *  {
- *    "course_id": "1234567",
- *    "user_id": "2124232",
- *    "recorded_at": "June 8th, 2022 12:34pm"
+ *    "certificateid":"1289719",
+ *    "userid":"0",
+ *    "courseid":"248150",
+ *    "certtypeid":"0",
+ *    "groupingid":"0",
+ *    "instance":"0",
+ *    "wp_user_id":"152849",
+ *    "certificate_type":"SS_NASBA_QAS_IRS",
+ *    "courseshortname":"",
+ *    "coursefullname":"Sexual Harassment Awareness",
+ *    "timecreated":"1637768590",
+ *    "certcustomtext":"",
+ *    "certcode":"fj9yE1g9Oa",
+ *    "credits_earned":null,
+ *    "first_name":"Charles",
+ *    "last_name":"Kulp",
+ *    "username":"152849",
+ *    "email":"ckulp@fdic.gov",
+ *    "wpcf_cfp_course_number_legacy":"",
+ *    "wpcf_cpe_category_1":"Business Law",
+ *    "wpcf_cpe_credits_1":"1",
+ *    "author_1":"Delta CPE LLC",
+ *    "wpcf_cfp_course_number":"",
+ *    "wpcf_ctec_course_number":"",
+ *    "wpcf_ctec_federal_tax_law_credits":"",
+ *    "wpcf_ctec_federal_tax_update_credits":"",
+ *    "wpcf_ctec_state_credits":"",
+ *    "wpcf_ctec_ethics_credits":"",
+ *    "wpcf_irs_course_number":"",
+ *    "wpcf_irs_federal_tax_law_credits":"",
+ *    "wpcf_irs_federal_tax_update_credits":"",
+ *    "wpcf_irs_ethics_credits":"",
+ *    "wpcf_qualifies_for_ca_fraud":"",
+ *    "wpcf_cfp_provider_number":"",
+ *    "wpcf_nasba_registry_provider_number":"103220",
+ *    "wpcf_new_york_provider_number":"",
+ *    "wpcf_texas_provider_number":"",
+ *    "wpcf_ctec_provider_number":"",
+ *    "wpcf_irs_provider_number":"",
+ *    "wpcf_cpe_category_2":"",
+ *    "wpcf_cpe_category_3":"",
+ *    "wpcf_cpe_credits_2":"",
+ *    "wpcf_cpe_credits_3":"",
+ *    "author_2":"",
+ *    "crandr":"",
+ *    "flethics":"",
+ *    "flprovider":"",
+ *    "source":"woo",
+ *    "certificate_status_code":"10",
+ *    "wp_product_id":"248150",
+ *    "wp_order_id":"32232",
+ *    "wp_order_item_id":"123122",
+ *    "certificateissuestimecreated":null
  *  }
  * 
  * @apiError	(Error 400)		{json}		Bad-Request				Invalid payload
@@ -256,45 +359,4 @@
  */
 
 
-/**
- * @api {get} /products/feed.csv Request Product Feeds in CSV format
- * @apiVersion 2022.3.4
- * @apiName GetProductsCSV
- * @apiGroup Products
- * @apiDescription First view, query live events, return base details (all events listed on this page) One used for example
- *
- * @apiSuccess {String} display_name Display name of the User.
- *
- * @apiSuccess	(Success 201)	{String}	CSV	CSV of all available Products
- * 
- * @apiSuccessExample	{csv}	Success:
- *	HTTP/1.1 200 OK
- *	{
- *		"serviceOrderNumber": "1234567",
- *	}
- * 
- * @apiError	(Error 400)		{json}		Bad-Request				Invalid payload
- * @apiError	(Error 404)		{json}		Not-Found				Not Found
- * @apiError	(Error 409)		{json}		Conflict				requestItemID already exists
- * 
- * @apiErrorExample		{json}	Bad-Request:
- *	HTTP/1.1 400 Bad Request
- *	{
- *		"error": "Bad Request"
- *	}
- * @apiErrorExample		{json}	Invalid-accessKey:
- *	HTTP/1.1 401 Unauthorized
- *	{
- *		"error": "Invalid accessKey"
- *	}
- * @apiErrorExample		{json}	Not-Found:
- *	HTTP/1.1 404 Not Found
- *	{
- *		"error": "Not Found"
- *	}
- * @apiErrorExample		{json}	requestItemID-Already-Exists:
- *	HTTP/1.1 409 Conflict
- *	{
- *		"error": "requestItemID already exists"
- *	}
- */
+
