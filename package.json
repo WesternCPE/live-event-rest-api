@@ -1,0 +1,30 @@
+{
+  "name": "WCPELiveEventRESTAPI",
+  "version": "2022.3.8",
+  "description": "WCPE Live Event REST API endpoints",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "apidoc -i ./src -o ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WesternCPE/live-event-rest-api.git"
+  },
+  "author": "Bradford Knowlton Jr.",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/WesternCPE/live-event-rest-api/issues"
+  },
+  "homepage": "https://github.com/WesternCPE/live-event-rest-api#readme",
+  "dependencies": {
+    "apidoc": "^0.50.4"
+  },
+  "apidoc": {
+    "title": "API Documenation",
+    "name": "WesternCPE",
+    "version": "2022.3.8",
+    "description": "Live Event REST API endpoints",
+    "url": "https://reports.westerncpe.com/api/v2"
+  }
+}
