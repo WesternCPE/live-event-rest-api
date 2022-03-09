@@ -25,6 +25,6 @@
     "name": "WesternCPE",
     "version": "2022.3.8",
     "description": "Live Event REST API endpoints",
-    "url": "https://reports.westerncpe.com/api/v2"
+    "url": ""
   }
 }

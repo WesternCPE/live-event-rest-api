@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @api {get} /events Returns all live events
+ * @api {get} https://reports.westerncpe.com/api/v2/events Returns all live events
  * @apiVersion 2022.3.8
  * @apiName GetEvents
  * @apiGroup Events
@@ -62,7 +62,7 @@
 
 
 /**
- * @api {get} /event/courses Returns all courses for a single event
+ * @api {get} https://reports.westerncpe.com/api/v2/event/courses Returns all courses for a single event
  * @apiVersion 2022.3.8
  * @apiName GetEventCourses
  * @apiGroup Event
@@ -79,7 +79,6 @@
  *      {
  *        "id": "123456",
  *        "sku": "22COrlando-LE22C278044",
- *        "code": "22COrlando-LE22C278044",
  *        "cpe_category_1": "",
  *        "cpe_credits_1": "3",
  *        "cpe_category_2": "",
@@ -127,7 +126,7 @@
 // end_time: 13:00
 
 /**
- * @api {get} /course Returns all details and materials for a course
+ * @api {get} https://reports.westerncpe.com/api/v2/course Returns all details and materials for a course
  * @apiVersion 2022.3.8
  * @apiName GetCourse
  * @apiGroup Course
@@ -211,7 +210,7 @@
 
 
 /**
- * @api {get} /course/attendees Returns all users enrolled in a course
+ * @api {get} https://reports.westerncpe.com/api/v2/course/attendees Returns all users enrolled in a course
  * @apiVersion 2022.3.8
  * @apiName GetCourseAttendees
  * @apiGroup Course
@@ -263,7 +262,7 @@
  */
 
 /**
- * @api {post} /course/certificate Issue certificate for Course
+ * @api {post} https://www.westerncpe.com/wp-json/wcpe/v2/course/certificate Issue certificate for Course
  * @apiVersion 2022.3.8
  * @apiName IssueCertificate
  * @apiGroup Course
