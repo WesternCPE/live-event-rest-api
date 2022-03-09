@@ -16,7 +16,6 @@
  *           {
  *             "id": "123456",
  *             "code": "22COrlando",
- *             "sku": "22COrlando",
  *             "name": "Orlando, FL",
  *             "year": "2022",
  *             "banner_image": "https://www.westerncpe.com/wp-content/uploads/2021/11/orlando_WesternCPE-scaled.jpg",
