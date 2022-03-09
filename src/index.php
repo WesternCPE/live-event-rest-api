@@ -65,7 +65,7 @@
  * @api {get} /event/courses Returns all courses for a single event
  * @apiVersion 2022.3.8
  * @apiName GetEventCourses
- * @apiGroup Events
+ * @apiGroup Event
  * @apiDescription Second view, event details (all courses listed on this page) One used for example
  *
  * @apiParam {Number} id Event ID.
@@ -130,7 +130,7 @@
  * @api {get} /course Returns all details and materials for a course
  * @apiVersion 2022.3.8
  * @apiName GetCourse
- * @apiGroup Courses
+ * @apiGroup Course
  * @apiDescription Third view, course details (materials and instructor info) One used for example
  *
  * @apiParam {Number} id Course ID.
@@ -214,7 +214,7 @@
  * @api {get} /course/attendees Returns all users enrolled in a course
  * @apiVersion 2022.3.8
  * @apiName GetCourseAttendees
- * @apiGroup Courses
+ * @apiGroup Course
  * @apiDescription Fourth view, course attendees details One used for example
  *
  * @apiParam {Number} id Course ID.
@@ -266,7 +266,7 @@
  * @api {post} /course/certificate Issue certificate for Course
  * @apiVersion 2022.3.8
  * @apiName IssueCertificate
- * @apiGroup Courses
+ * @apiGroup Course
  * @apiDescription Issue a certificate for attending a live event course
  *
  * @apiParam {Object} certificate_request         Certificate request object.
