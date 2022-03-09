@@ -141,7 +141,7 @@
  *  HTTP/1.1 200 OK
  *  {  
  *     "id": "123456",
- *     "code": "22COrlando-LE22C278044",
+ *     "sku": "22COrlando-LE22C278044",
  *     "name": "Everybody's Critical Individual Tax Issues in 2022",
  *     "date": "June 13, 2022",
  *     "start_time": "07:30",
