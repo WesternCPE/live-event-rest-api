@@ -1,11 +1,11 @@
 {
   "name": "WCPELiveEventRESTAPI",
-  "version": "2022.4.4",
+  "version": "2022.4.12",
   "description": "WCPE Live Event REST API endpoints",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "apidoc -i ./src -o ."
+    "generate": "apidoc -i ./../WCPE-API-Plugin/classes/live-events/ -o . -c ./../WCPE-API-Plugin/apidoc.json"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
   "apidoc": {
     "title": "API Documenation",
     "name": "WesternCPE",
-    "version": "2022.4.4",
+    "version": "2022.4.12",
     "description": "Live Event REST API endpoints",
     "url": ""
   }
